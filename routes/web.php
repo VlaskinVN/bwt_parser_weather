@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/contactus', function() {
+    return view('contactUs');  
+});
+Route::post('/contactus', 'ContactUSController@addNewFeedback');
+
+Route::get('/feedbacks', 'ContactUSController@allFeedback');
+
+Route::get('/weather', 'WeatherController@index');
