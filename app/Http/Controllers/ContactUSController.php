@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
+
 
 class ContactUSController extends Controller
 {
@@ -19,7 +21,8 @@ class ContactUSController extends Controller
 
     public function allFeedback(){
         if (Auth::check()){
-            return view('allFeedback');
+            $feedbacks = DB::table('feedbacks')->paginate(5);
+            return view('/feedback', compact('feedbacks'));
         } else {
             return view('/auth/login');
         }  
