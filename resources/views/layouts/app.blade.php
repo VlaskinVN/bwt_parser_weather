@@ -33,7 +33,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @if (Auth::check())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('feedbacks') }}">{{ __('Feedbacks') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('weather') }}">{{ __('Weather') }}</a>
+                            </li>
+                        @endif
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('contactus') }}">{{ __('Contact Us') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
