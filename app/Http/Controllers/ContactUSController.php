@@ -28,7 +28,24 @@ class ContactUSController extends Controller
         }  
     }
 
-    public function addNewFeedback(){
-        return view('/auth/login');
+    public function addNewFeedback(Request $request){        
+
+        $this->validate($request, [
+            'username' => 'required|string',
+            'email' => 'required|string|email',
+            'text' => 'required|string|max:500'
+        ]);
+        
+        $name = $request->get('username');
+        $email = $request->get('email');
+        $feedback = $request->get('text');
+
+        DB::table('feedbacks')->insert(
+            ['nameUser' => $name, 'email' => $email, 'feedbackText' => $feedback]
+        );        
+
+        $text = 'adding new feedback!';
+
+        return view('contactUs', compact('text'));
     }
 }

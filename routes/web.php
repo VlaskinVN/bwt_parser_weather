@@ -20,7 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/contactus', function() {
-    return view('contactUs');  
+    $text = '';
+    return view('contactUs', compact('text'));  
 });
 Route::post('/contactus', 'ContactUSController@addNewFeedback');
 
