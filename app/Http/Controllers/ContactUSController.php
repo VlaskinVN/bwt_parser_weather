@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ContactUsRequest;
 use DB;
 
 
@@ -28,14 +29,7 @@ class ContactUSController extends Controller
         }  
     }
 
-    public function addNewFeedback(Request $request){        
-
-        $this->validate($request, [
-            'username' => 'required|string',
-            'email' => 'required|string|email',
-            'text' => 'required|string|max:500'
-        ]);
-        
+    public function addNewFeedback(ContactUsRequest $request){   
         $name = $request->get('username');
         $email = $request->get('email');
         $feedback = $request->get('text');

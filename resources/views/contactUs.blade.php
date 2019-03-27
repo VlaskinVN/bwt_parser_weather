@@ -5,7 +5,9 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <div class=" {{ $errors->has('username') ? 'panel-header alert alert-danger' : '' }}">
+
+        
+        <div class=" {{ ($errors->has('username') || $errors->has('email') || $errors->has('email')) ? 'panel-header alert alert-danger' : '' }}">
             @if ($errors->has('username'))
                 <span class="help-block" style='margin-left:10px'>* {{ $errors->first('username') }}</span><br>
             @endif 
