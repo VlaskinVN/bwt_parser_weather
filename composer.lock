@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4731429c7f25ab92eaa813447a972209",
+    "content-hash": "7193ac8a0bececef623888888f9e8b43",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -453,6 +453,45 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "krok/phpquery",
+            "version": "0.9.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yii2-developer/phpquery.git",
+                "reference": "41c8100e77e64d307b1b8fcef0c7f628ded96858"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yii2-developer/phpquery/zipball/41c8100e77e64d307b1b8fcef0c7f628ded96858",
+                "reference": "41c8100e77e64d307b1b8fcef0c7f628ded96858",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "phpQuery": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "phpquery",
+            "keywords": [
+                "phpQuery"
+            ],
+            "time": "2018-02-22T05:04:52+00:00"
         },
         {
             "name": "laravel/framework",

@@ -1,12 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>{{ $text }}</h1>
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
-
-        
+    <div class="col-md-8">        
         <div class=" {{ ($errors->has('username') || $errors->has('email') || $errors->has('email')) ? 'panel-header alert alert-danger' : '' }}">
             @if ($errors->has('username'))
                 <span class="help-block" style='margin-left:10px'>* {{ $errors->first('username') }}</span><br>
@@ -22,13 +19,16 @@
             {{ csrf_field() }}
             <div class="panel-body">
                 <div class="form-group">
+                    <label for="username">Username : </label><br>
                     <input type="text" name="username" id="username" class="form-control" style="margin:10px" placeholder="User name">   
                 </div>
                 
                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                    <label for="email">E-mail : </label><br>
                     <input type="email" name="email" id="email" class="form-control" style="margin:10px" placeholder="E-mail">
                 </div>
                 <div class="form-group {{ $errors->has('text') ? 'has-error' : '' }}">
+                    <label for="username">Question : </label><br>
                     <textarea name="text" id="text" cols="30" rows="10" class="form-control" style="margin:10px" placeholder="Input text"></textarea>
                 </div>
             </div>

@@ -38,7 +38,7 @@ class ContactUSController extends Controller
             ['nameUser' => $name, 'email' => $email, 'feedbackText' => $feedback]
         );        
 
-        $text = 'adding new feedback!';
+        $text = 'You add new feedback!';
 
         return view('contactUs', compact('text'));
     }
