@@ -18,6 +18,58 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
 </head>
 <body>
     <div id="app">
@@ -33,7 +85,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @if (Auth::check())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('feedbacks') }}">{{ __('Feedbacks') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('weather') }}">{{ __('Weather') }}</a>
+                            </li>
+                        @endif
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('contactus') }}">{{ __('Contact Us') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

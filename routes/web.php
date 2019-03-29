@@ -12,9 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/contactus', function() {
+    $text = '';
+    return view('contactUs', compact('text'));  
+});
+Route::post('/contactus', 'ContactUSController@addNewFeedback');
+
+Route::get('/feedbacks', 'ContactUSController@allFeedback');
+
+Route::get('/weather', 'WeatherController@index');
