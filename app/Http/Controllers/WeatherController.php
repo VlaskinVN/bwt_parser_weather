@@ -11,7 +11,7 @@ class WeatherController extends Controller
     //
     public function index(){
         if (Auth::check()){
-            $html = WeatherController::curl_get("https://www.gismeteo.ua/weather-kerch-5001/"); // create class object CURL
+            $html = WeatherController::curl_get("https://www.gismeteo.ua/weather-zaporizhia-5093/"); // create class object CURL
             $doc = \phpQuery::newDocument($html); /* composer require krok/phpquer */
 
             $time = ['Ночь', 'Утро', 'День', 'Вечер'];
