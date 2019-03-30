@@ -25,6 +25,12 @@ Route::get('/contactus', function() {
 });
 Route::post('/contactus', 'ContactUSController@addNewFeedback');
 
-Route::get('/feedbacks', 'ContactUSController@allFeedback');
+Route::get('/feedbacks', [
+        'middleware' => 'auth', 
+        'uses' => 'ContactUSController@allFeedback'
+]);
 
-Route::get('/weather', 'WeatherController@index');
+Route::get('/weather', [
+        'middleware' => 'auth', 
+        'uses' => 'WeatherController@index'
+]);
