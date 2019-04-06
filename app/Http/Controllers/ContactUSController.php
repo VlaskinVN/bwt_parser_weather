@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ContactUsRequest;
-use App\FeedbackModel;
-use DB;
+use App\Feedbacks;
 
 
 class ContactUSController extends Controller
@@ -22,16 +20,20 @@ class ContactUSController extends Controller
     }
 
     public function allFeedback(){
-        $fm = new FeedbackModel(); 
-        $feedbacks = $fm->getAllFeedback(5);
-        return view('/feedback', compact('feedbacks'));
+        /*$fm = new FeedbackModel(); 
+        $feedbacks = $fm->getAllFeedback(5);*/
+        $feedbacks = Feedbacks::paginate(5);
+        return view('/feedback', ['feedbacks' => $feedbacks]);
     }
 
     public function addNewFeedback(ContactUsRequest $request){   
-        $fm = new FeedbackModel(); 
-        $fm->addNewFeedback($request->get('username'), $request->get('email'), $request->get('text'));
-        $text = 'You add new feedback!';
 
-        return view('contactUs', compact('text'));
+        Feedbacks::create($request->all());
+
+        // $fm->addNewFeedback($request->get('username'), $request->get('email'), $request->get('text'));
+        // $text = 'You add new feedback!';
+
+        return redirect()->back()->with('flash-message', 'Thank you for your feedback!');
+        //return view('contactUs', compact('text'));
     }
 }
