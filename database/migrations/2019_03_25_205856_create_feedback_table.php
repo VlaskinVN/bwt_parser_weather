@@ -18,7 +18,7 @@ class CreateFeedbackTable extends Migration
             $table->string('nameUser');
             $table->string('email');
             $table->string('feedbackText');
-            $table->timestamps();
+            $table->timestamps()->nullable();;
         });
     }
 

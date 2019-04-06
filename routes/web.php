@@ -19,11 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/contactus', function() {
-    $text = '';
-    return view('contactUs', compact('text'));  
-});
-Route::post('/contactus', 'ContactUSController@addNewFeedback');
+Route::get('/contactus', [
+    'uses' => 'ContactUSController@sendFeedback'
+]);
+Route::post('/contactus', [
+    'uses' => 'ContactUSController@addNewFeedback',
+    'as' => 'contactus.addNewFeedback'
+]);
 
 Route::get('/feedbacks', [
         'middleware' => 'auth', 
